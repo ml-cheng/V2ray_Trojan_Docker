@@ -17,7 +17,11 @@
 ```
 证书由Caddy获取，然后将证书的目录映射到宿主机给Trojan使用
 ```
-
+## 安装Curl支持环境
+```
+apt -y install curl      #Debian
+yum -y install curl     #CentOS
+```
 ## 安装Docker
 
 ### 一键安装脚本
@@ -25,56 +29,6 @@
 ```
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
-
-### CentOS
-
-```
-# 获取官方源
-wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo
-
-# 安装docker ce
-yum install -y docker-ce
-
-# 用下面的命令可以查看可以安装的版本
-yum list docker-ce --showduplicates | sort -r
-# 安装指定版本的Docker
-yum install -y docker-ce-18.03.0.ce-1.el7.centos
-
-# 启动、开机启动
-systemctl start docker
-systemctl enable docker
-```
-
-### Ubuntu
-
-```
-sudo apt-get update
-sudo apt-get install docker.io
-```
-
-或者
-
-```
-# 更新Ubuntu的apt源索引
-sudo apt-get update
-
-# 安装包允许apt通过HTTPS使用仓库
-sudo dpkg --configure -a
-sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-
-# 添加Docker官方GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-# 设置Docker稳定版仓库
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
-# 更新apt源索引
-sudo apt-get update
-
-# 安装最新版本Docker CE（社区版）
-sudo apt-get install docker-ce
-```
-
 
 ## 安装Docker Compose（容器编排工具）
 ```
@@ -106,7 +60,7 @@ chmod +x tcp.sh
 ## 下载源码
 
 ```
-git clone https://github.com/maidoudouo/V2ray_Trojan_Docker
+git clone https://github.com/ml-cheng/Vps_Docker
 ```
 
 ## Setting
